@@ -2,7 +2,7 @@ import * as ml5 from "ml5";
 
     const Detector = (p) => {
 
-        let faceapi;
+        let faceApi;
         const cameraOptions = {
             audio: false,
             video: {}
@@ -18,7 +18,7 @@ import * as ml5 from "ml5";
             p.createCanvas(360, 270);
             p.video = p.createCapture(cameraOptions);
             p.video.size(p.width, p.height);
-            faceapi = ml5.faceApi(p.video, faceOptions, faceReady);
+            faceApi = ml5.faceApi(p.video, faceOptions, faceReady);
             p.video.hide()
         }
 
@@ -27,7 +27,7 @@ import * as ml5 from "ml5";
         }
 
         const faceReady = () => {
-            faceapi.detect(gotFaces);
+            faceApi.detect(gotFaces);
         }
 
         let gotFaces = (error, result) => {
@@ -45,7 +45,7 @@ import * as ml5 from "ml5";
                     drawBox(result)    
                 }
             }
-            faceapi.detect(gotFaces);
+            faceApi.detect(gotFaces);
         }
 
         const drawBox = (detections) => {
