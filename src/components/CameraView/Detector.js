@@ -1,67 +1,67 @@
 import * as ml5 from "ml5";
 
-    const Detector = (p) => {
+const Detector = (p) => {
 
-        let faceApi;
-        const cameraOptions = {
-            audio: false,
-            video: {}
-        }
+    let faceApi;
+    const cameraOptions = {
+        audio: false,
+        video: {}
+    }
 
-        const faceOptions = { 
-            withLandmarks: true, 
-            withExpressions: false,
-            withDescriptors: false
-        }
+    const faceOptions = {
+        withLandmarks: true,
+        withExpressions: false,
+        withDescriptors: false
+    }
 
-        p.setup = () => {
-            p.createCanvas(360, 270);
-            p.video = p.createCapture(cameraOptions);
-            p.video.size(p.width, p.height);
-            faceApi = ml5.faceApi(p.video, faceOptions, faceReady);
-            p.video.hide()
-        }
+    p.setup = () => {
+        p.createCanvas(360, 270);
+        p.video = p.createCapture(cameraOptions);
+        p.video.size(p.width, p.height);
+        faceApi = ml5.faceApi(p.video, faceOptions, faceReady);
+        p.video.hide()
+    }
 
-        p.draw = () => {
-        
-        }
+    p.draw = () => {
 
-        const faceReady = () => {
-            faceApi.detect(gotFaces);
-        }
+    }
 
-        let gotFaces = (error, result) => {
-            if (error) {
+    const faceReady = () => {
+        faceApi.detect(gotFaces);
+    }
+
+    let gotFaces = (error, result) => {
+        if (error) {
             console.log(error);
             return;
-            }
-            console.log(result);
-
-            p.background(255);
-            p.image(p.video, 0,0, p.width, p.height)
-
-            if (result) {
-                if (result.length > 0) {
-                    drawBox(result)    
-                }
-            }
-            faceApi.detect(gotFaces);
         }
+        console.log(result);
 
-        const drawBox = (detections) => {
-            for(let i = 0; i < detections.length; i++){
-                const alignedRect = detections[i].alignedRect;
-                const x = alignedRect._box._x
-                const y = alignedRect._box._y
-                const boxWidth = alignedRect._box._width
-                const boxHeight  = alignedRect._box._height
-                
-                p.noFill();
-                p.stroke(161, 95, 251);
-                p.strokeWeight(2);
-                p.rect(x, y, boxWidth, boxHeight);
+        p.background(255);
+        p.image(p.video, 0, 0, p.width, p.height)
+
+        if (result) {
+            if (result.length > 0) {
+                drawBox(result)
             }
+        }
+        faceApi.detect(gotFaces);
+    }
+
+    const drawBox = (detections) => {
+        for (let i = 0; i < detections.length; i++) {
+            const alignedRect = detections[i].alignedRect;
+            const x = alignedRect._box._x
+            const y = alignedRect._box._y
+            const boxWidth = alignedRect._box._width
+            const boxHeight = alignedRect._box._height
+
+            p.noFill();
+            p.stroke(161, 95, 251);
+            p.strokeWeight(2);
+            p.rect(x, y, boxWidth, boxHeight);
         }
     }
+}
 
 export default Detector;

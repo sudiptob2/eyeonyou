@@ -4,13 +4,13 @@ import p5 from 'p5';
 
 const CameraView = () => {
     const videoRef = useRef(null);
-    new p5(Detector, videoRef.current) 
-    
-    return(<div>
+    new p5(Detector, videoRef.current)
+
+    return (<div>
         <h1>
-        <div ref={videoRef}>
- 
-        </div>
+            <div ref={videoRef}>
+
+            </div>
         </h1>
     </div>)
 }

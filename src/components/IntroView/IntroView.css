@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+.introView {
+    padding: 20px !important;
+}
+
+.textDetails {
+    color: whitesmoke;
+    font-family: 'Quicksand', sans-serif !important;
+}
+
+.titleText {
+    color: whitesmoke !important;
+    font-size: 100px !important;
+    font-family: 'Quicksand', sans-serif !important;
+}
+
+@media (max-width: 576px) {
+    .introView {
+        padding: 5% !important;
+    }
+
+    .titleText {
+        color: whitesmoke !important;
+        font-size: 70px !important;
+        font-family: 'Quicksand', sans-serif !important;
+    }
+
+    .startButton {
+        width: 100% !important;
+        font-size: 30px !important;
+    }
+}
+
+.startButtonBorder {
+    border: 1px solid whitesmoke !important;
+    border-radius: 0 !important;
+}
+
+.startButton {
+    color: whitesmoke !important;
+}
+
+.startButton:hover {
+    background-color: whitesmoke !important;
+    color: black !important;
+}
