@@ -1,16 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 
+:root {
+    --main-bg-color: whitesmoke;
+}
+
 .introView {
     padding: 20px !important;
 }
 
 .textDetails {
-    color: whitesmoke;
+    color: var(--main-bg-color);
     font-family: 'Quicksand', sans-serif !important;
 }
 
 .titleText {
-    color: whitesmoke !important;
+    color: var(--main-bg-color) !important;
     font-size: 100px !important;
     font-family: 'Quicksand', sans-serif !important;
 }
@@ -21,7 +25,7 @@
     }
 
     .titleText {
-        color: whitesmoke !important;
+        color: var(--main-bg-color) !important;
         font-size: 70px !important;
         font-family: 'Quicksand', sans-serif !important;
     }
@@ -33,15 +37,15 @@
 }
 
 .startButtonBorder {
-    border: 1px solid whitesmoke !important;
+    border: 1px solid var(--main-bg-color) !important;
     border-radius: 0 !important;
 }
 
 .startButton {
-    color: whitesmoke !important;
+    color: var(--main-bg-color) !important;
 }
 
 .startButton:hover {
-    background-color: whitesmoke !important;
+    background-color: var(--main-bg-color) !important;
     color: black !important;
 }
