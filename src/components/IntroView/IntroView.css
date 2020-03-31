@@ -19,6 +19,22 @@
     font-family: 'Quicksand', sans-serif !important;
 }
 
+.startButtonBorder {
+    border: 1px solid var(--main-bg-color) !important;
+    border-radius: 0 !important;
+}
+
+.startButton {
+    color: var(--main-bg-color) !important;
+    width: 35% !important;
+    font-size: 40px !important;
+}
+
+.startButton:hover {
+    background-color: var(--main-bg-color) !important;
+    color: black !important;
+}
+
 @media (max-width: 576px) {
     .introView {
         padding: 5% !important;
@@ -34,18 +50,4 @@
         width: 100% !important;
         font-size: 30px !important;
     }
-}
-
-.startButtonBorder {
-    border: 1px solid var(--main-bg-color) !important;
-    border-radius: 0 !important;
-}
-
-.startButton {
-    color: var(--main-bg-color) !important;
-}
-
-.startButton:hover {
-    background-color: var(--main-bg-color) !important;
-    color: black !important;
 }
