@@ -3,6 +3,7 @@ import React, {useEffect} from 'react';
 import IntroView from "./components/IntroView";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
+import FooterPage from "./components/FooterView/FooterPage"
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <div className="App">
             {/*<FrontView/>*/}
             <IntroView/>
+            <footer>{<FooterPage/>}</footer>
         </div>
     );
 }

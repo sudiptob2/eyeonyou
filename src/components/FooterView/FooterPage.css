@@ -1,0 +1,11 @@
+#footer-main-container { 
+    text-align: center;
+    margin: 0;
+    color: white;
+    background-color: rgb(44, 45, 51);
+    position: absolute;
+    right: 0;bottom:0;left:0;
+}
+.social {
+    margin: 10px;
+}

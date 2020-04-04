@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router';
 import Logo from "./Logo";
 import './IntroView.css'
 import CameraView from "../CameraView";
+import FooterPage from "../FooterView/FooterPage"
 
 const IntroView = () => {
     const letsDoItClick = (e) => {
@@ -16,28 +18,25 @@ const IntroView = () => {
                 <Logo/>
             </div>
             <div className="title row justify-content-center p-2">
-                <h1 className="titleText text-center">Eye On You</h1>
+                <h1 className="titleText text-center">Stop procrastinating, start producing!</h1>
             </div>
+            <div className="row justify-content-center p-2">
+                <p className="subTitleText">virtual coworking with eyeonyou significantly improves your productivity.</p>
+            </div>
+
             <div className="start row justify-content-center p-2">
                 <button type="button"
                         onClick={letsDoItClick}
                         className="btn startButton startButtonBorder">
-                    Lets do it ->
+                    Try EyeOnYou ->
                 </button>
             </div>
             <div className="infoText text-center row justify-content-center p-2">
                 <p className="textDetails">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                    dolore eu
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                    dolore eu
-                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
+                    Built with TensorFlow.js + p5.js + React.js.
+                    Learn more about <a href="#">how it works.</a>
                 </p>
+                
             </div>
         </div>
         }

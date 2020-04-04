@@ -4,11 +4,13 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.4.1",
+    "mdbreact": "^4.25.5",
     "ml5": "^0.4.3",
     "p5": "^1.0.0",
     "react": "^16.9.0",
     "react-bootstrap": "^1.0.0",
     "react-dom": "^16.9.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.1"
   },
   "scripts": {
