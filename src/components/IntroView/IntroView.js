@@ -34,7 +34,7 @@ const IntroView = () => {
             <div className="infoText text-center row justify-content-center p-2">
                 <p className="textDetails">
                     Built with TensorFlow.js + p5.js + React.js.
-                    Learn more about <a href="#">how it works.</a>
+                    Learn more about <a className = "link" href="#">how it works.</a>
                 </p>
                 
             </div>

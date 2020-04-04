@@ -6,6 +6,23 @@
     position: absolute;
     right: 0;bottom:0;left:0;
 }
+.copyright{
+    margin: 10px;
+    font-weight: bold;
+    color:rgb(194, 194, 194);
+}
 .social {
     margin: 10px;
+}
+.support {
+    color:rgb(194, 194, 194);
+}
+.face{
+    color:#86e0ce;
+}
+.tweet{
+    color:#86e0ce;
+}
+.linked{
+    color:#86e0ce;
 }

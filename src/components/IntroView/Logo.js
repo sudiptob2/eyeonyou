@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 const Logo = () => {
-    const eyeColor = "#F5F5F5";
+    const eyeColor = "#94dfb4";
 
     const arrowDirections = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'];
 
@@ -96,7 +96,7 @@ const Logo = () => {
                     x="4.087"
                     y="222.269"
                     fill="none"
-                    strokeWidth="8.174"
+                    strokeWidth="7.174"
                     ry="24.739"
                 />
                 <circle

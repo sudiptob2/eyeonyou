@@ -3,6 +3,7 @@
 :root {
     --main-bg-color: whitesmoke;
     --secondary-txt-color: rgb(194, 194, 194);
+    --acent-color: #86e0ce;
 }
 
 .introView {
@@ -32,20 +33,24 @@
 }
 
 .startButtonBorder {
-    border: 1px solid var(--main-bg-color) !important;
+    border: 2px solid var(--acent-color) !important;
     border-radius: 0 !important;
 }
 
 .startButton {
-    color: var(--main-bg-color) !important;
+    color: var(--acent-color) !important;
     width: 30% !important;
     font-size: 30px !important;
     margin-top: 15px ;
+    
 }
 
 .startButton:hover {
-    background-color: var(--main-bg-color) !important;
-    color: black !important;
+    background-color: #86e0ce !important;
+    color: white !important;
+}
+.link{
+    color: var(--acent-color);
 }
 
 @media (max-width: 576px) {

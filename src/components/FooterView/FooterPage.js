@@ -4,15 +4,15 @@ import './FooterPage.css'
 const FooterPage = () => {
   return (
     <div id= "footer-main-container">
-        <div class="copyright">
+        <div className="copyright">
             <p>copyright 2020 - Eyeonyou</p>
         </div>
-        <div class="social">
-            <a href="#" class="support">Contact Us</a>
-            <div>
-            <a href="#" class="face">facebook | </a>
-            <a href="#" class="tweet">twitter | </a>
-            <a href="#" class="linked">LinkedIn </a>
+        <div className="social">
+            <a href="#" className="support">Contact Us</a>
+            <div clasName = "socialLinks">
+              <a href="#" className="face">facebook | </a>
+              <a href="#" className="tweet">twitter | </a>
+              <a href="#" className="linked">LinkedIn </a>
             </div>
 
         </div>
