@@ -49,6 +49,13 @@
     background-color: #86e0ce !important;
     color: white !important;
 }
+.title-custom-padding{
+    padding-top:20px;
+    margin:0;
+}
+.subtitle-custom-padding{
+    padding-bottom: 40px;
+}
 .link{
     color: var(--acent-color);
 }

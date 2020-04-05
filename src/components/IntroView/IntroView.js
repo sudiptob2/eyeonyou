@@ -17,10 +17,10 @@ const IntroView = () => {
             <div style={{}} className="logo row justify-content-center p-2">
                 <Logo/>
             </div>
-            <div className="title row justify-content-center p-2">
+            <div className="title row justify-content-center title-custom-padding">
                 <h1 className="titleText text-center">Stop procrastinating, start producing!</h1>
             </div>
-            <div className="row justify-content-center p-2">
+            <div className="row justify-content-center subtitle-custom-padding">
                 <p className="subTitleText">virtual coworking with eyeonyou significantly improves your productivity.</p>
             </div>
 
