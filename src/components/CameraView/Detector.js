@@ -41,6 +41,7 @@ const Detector = (p) => {
 
         p.background(255);
         p.image(p.video, 0, 0, p.width, p.height);
+        p.rect(0+40, 0+40, p.width-80, p.height-80);
 
         if (result) {
             if (result.length > 0) {

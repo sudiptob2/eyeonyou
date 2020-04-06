@@ -9,7 +9,7 @@ const FooterPage = () => {
         </div>
         <div className="social">
             <a href="#" className="support">Contact Us</a>
-            <div clasName = "socialLinks">
+            <div className = "socialLinks">
               <a href="#" className="face">facebook | </a>
               <a href="#" className="tweet">twitter | </a>
               <a href="#" className="linked">LinkedIn </a>

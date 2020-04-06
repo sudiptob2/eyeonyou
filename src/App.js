@@ -12,7 +12,7 @@ function App() {
         return (() => {
             document.body.classList.remove("background-color")
         });
-    });
+    },[]);
 
     return (
         <div className="App">

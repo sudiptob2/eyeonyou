@@ -34,10 +34,13 @@ const Logo = () => {
     const act = () => {
         const selection = arrowDirections[~~(Math.random() * arrowDirections.length)];
         onArrowAction(selection);
-    }
+    };
 
     useEffect(() => {
-        setInterval(() => act(), 1000)
+        const actionInterval = setInterval(() => act(), 1000);
+        return (
+            clearInterval(actionInterval)
+        )
     }, []);
 
     const radiusBoundary = (eyeRadius / 2) - 1;
@@ -66,7 +69,7 @@ const Logo = () => {
             default:
                 return;
         }
-    }; 
+    };
 
     /*      width="505.894"
             height="297.894"  */
