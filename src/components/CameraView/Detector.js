@@ -17,10 +17,11 @@ const Detector = (p) => {
     };
 
     p.setup = () => {
-        p.createCanvas(360, 270);
+        const cnv = p.createCanvas(360, 270);
         p.video = p.createCapture(cameraOptions);
         p.video.size(p.width, p.height);
         faceApi = ml5.faceApi(p.video, faceOptions, faceReady);
+        cnv.position(200,200)
         p.video.hide()
         
     };

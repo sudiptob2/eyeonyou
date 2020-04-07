@@ -38,9 +38,10 @@ const Logo = () => {
 
     useEffect(() => {
         const actionInterval = setInterval(() => act(), 1000);
-        return (
-            clearInterval(actionInterval)
-        )
+        return () => {
+            clearInterval(actionInterval);
+        };
+
     }, []);
 
     const radiusBoundary = (eyeRadius / 2) - 1;
