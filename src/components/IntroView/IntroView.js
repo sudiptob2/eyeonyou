@@ -1,11 +1,18 @@
 import React, {useState} from 'react';
 import Logo from "./Logo";
 import './IntroView.css'
+import CameraView from "../CameraView/CameraView"
+import NoCamera from "../CameraView/NoCamera"
+
+
 
 const IntroView = () => {
     const letsDoItClick = (e) => {
         setClicked(true);
+        checkCamera();
     };
+    const [clicked, setClicked] = useState(false);
+    const [hasCamera, setHasCamera] = useState(true)
 
     const checkCamera = () => {
         navigator.getMedia = (navigator.getUserMedia || // use the proper vendor prefix
@@ -15,13 +22,15 @@ const IntroView = () => {
 
         navigator.getMedia({video: true}, function () {
             console.log("true");
+            setHasCamera(true);
             return true;
         }, function () {
             console.log("false");
+            setHasCamera(false);
             return false;
         });
     };
-    const [clicked, setClicked] = useState(false);
+    
 
     return (<div className="introView container">
         {!clicked && <div>
@@ -52,12 +61,10 @@ const IntroView = () => {
             </div>
         </div>
         }
-        {clicked &&
         <div>
-            {checkCamera()}
-            {/*<CameraView/>*/}
+            {(hasCamera && clicked) ? <CameraView/> : clicked === true ? hasCamera === false ? <NoCamera/>: null : null}
         </div>
-        }
+
     </div>)
 };
 

@@ -60,6 +60,7 @@
     color: var(--acent-color);
 }
 
+
 @media (max-width: 576px) {
     .introView {
         padding: 5% !important;

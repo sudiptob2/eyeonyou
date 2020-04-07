@@ -22,6 +22,7 @@ const Detector = (p) => {
         p.video.size(p.width, p.height);
         faceApi = ml5.faceApi(p.video, faceOptions, faceReady);
         p.video.hide()
+        
     };
 
     p.draw = () => {
@@ -38,7 +39,6 @@ const Detector = (p) => {
             return;
         }
         console.log(result);
-
         p.background(255);
         p.image(p.video, 0, 0, p.width, p.height);
         p.rect(0+40, 0+40, p.width-80, p.height-80);
