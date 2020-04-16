@@ -12,7 +12,7 @@ const IntroView = () => {
         checkCamera();
     };
     const [clicked, setClicked] = useState(false);
-    const [hasCamera, setHasCamera] = useState(true)
+    const [hasCamera, setHasCamera] = useState(true);
 
     const checkCamera = () => {
         navigator.getMedia = (navigator.getUserMedia || // use the proper vendor prefix

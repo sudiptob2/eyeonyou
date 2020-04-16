@@ -1,37 +1,43 @@
 import * as ml5 from "ml5";
 
 const Detector = (p) => {
-
     let faceApi;
     const cameraOptions = {
         audio: false,
         video: {
-            facingMode: "user"
-        }
+            facingMode: "user",
+        },
     };
-
+    let isLoading = true;
     const faceOptions = {
         withLandmarks: true,
         withExpressions: false,
-        withDescriptors: false
+        withDescriptors: false,
     };
 
     p.setup = () => {
         const cnv = p.createCanvas(360, 270);
+        p.frameRate(1);
         p.video = p.createCapture(cameraOptions);
         p.video.size(p.width, p.height);
         faceApi = ml5.faceApi(p.video, faceOptions, faceReady);
-        cnv.position(200,200)
-        p.video.hide()
-        
+        cnv.position(200, 200);
+
+        p.video.hide();
     };
 
     p.draw = () => {
-
+        if (isLoading) {
+            p.textSize(32);
+            p.text("Loading", 10, 30);
+            p.fill(0, 102, 153);
+        }
     };
 
     const faceReady = () => {
         faceApi.detect(gotFaces);
+        isLoading = false;
+        console.log("Camera Loading complete");
     };
 
     let gotFaces = (error, result) => {
@@ -39,14 +45,15 @@ const Detector = (p) => {
             console.log(error);
             return;
         }
+
         console.log(result);
         p.background(255);
         p.image(p.video, 0, 0, p.width, p.height);
-        p.rect(0+40, 0+40, p.width-80, p.height-80);
+        p.rect(0 + 40, 0 + 40, p.width - 80, p.height - 80);
 
         if (result) {
             if (result.length > 0) {
-                drawBox(result)
+                drawBox(result);
             }
         }
         faceApi.detect(gotFaces);
@@ -65,7 +72,7 @@ const Detector = (p) => {
             p.strokeWeight(2);
             p.rect(x, y, boxWidth, boxHeight);
         }
-    }
+    };
 };
 
 export default Detector;
