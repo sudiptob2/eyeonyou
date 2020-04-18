@@ -1,4 +1,5 @@
 import * as ml5 from "ml5";
+import demo from "./loading.gif";
 
 const Detector = (p) => {
     let faceApi;
@@ -9,6 +10,8 @@ const Detector = (p) => {
         },
     };
     let isLoading = true;
+    let gif_loadImg, gif_createImg;
+    let cnvPosX, cnvPosY;
     const faceOptions = {
         withLandmarks: true,
         withExpressions: false,
@@ -17,20 +20,25 @@ const Detector = (p) => {
 
     p.setup = () => {
         const cnv = p.createCanvas(360, 270);
-        p.frameRate(1);
+        gif_createImg = p.createImg(demo);
+        gif_loadImg = p.loadImage(demo);
         p.video = p.createCapture(cameraOptions);
         p.video.size(p.width, p.height);
         faceApi = ml5.faceApi(p.video, faceOptions, faceReady);
-        cnv.position(200, 200);
+        //Centerize the cnv
+        cnvPosX = (p.windowWidth - p.width) / 2;
+        cnvPosY = (p.windowHeight - p.height) / 2;
+        cnv.position(cnvPosX, cnvPosY);
 
         p.video.hide();
     };
 
     p.draw = () => {
         if (isLoading) {
-            p.textSize(32);
-            p.text("Loading", 10, 30);
-            p.fill(0, 102, 153);
+            p.image(gif_loadImg, cnvPosX + 60, cnvPosY + 25);
+            gif_createImg.position(cnvPosX + 60, cnvPosY + 25);
+        } else {
+            gif_createImg.hide();
         }
     };
 
