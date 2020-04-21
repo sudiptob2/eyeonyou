@@ -1,5 +1,6 @@
 import * as ml5 from "ml5";
 import demo from "./loading.gif";
+import soundFile from "./soundfile.mp3";
 
 const Detector = (p) => {
     let faceApi;
@@ -9,8 +10,10 @@ const Detector = (p) => {
             facingMode: "user",
         },
     };
+    const ratio = 360 / 270;
     let isLoading = true;
     let gif_loadImg, gif_createImg;
+    let alarm;
     let cnvPosX, cnvPosY;
     const faceOptions = {
         withLandmarks: true,
@@ -19,9 +22,15 @@ const Detector = (p) => {
     };
 
     p.setup = () => {
-        const cnv = p.createCanvas(360, 270);
+        const cnv = p.createCanvas(350 * ratio, 350);
+        // Loading the sound file
+        //p.soundFormats("mp3", "ogg");
+        //alarm = p.loadSound(soundFile);
+        //Loader animation code
         gif_createImg = p.createImg(demo);
         gif_loadImg = p.loadImage(demo);
+
+        // Camera video code
         p.video = p.createCapture(cameraOptions);
         p.video.size(p.width, p.height);
         faceApi = ml5.faceApi(p.video, faceOptions, faceReady);
@@ -34,9 +43,9 @@ const Detector = (p) => {
     };
 
     p.draw = () => {
+        // Displaying the loader
         if (isLoading) {
-            p.image(gif_loadImg, cnvPosX + 60, cnvPosY + 25);
-            gif_createImg.position(cnvPosX + 60, cnvPosY + 25);
+            gif_createImg.position(cnvPosX + 90 * ratio, cnvPosY + 25 * ratio);
         } else {
             gif_createImg.hide();
         }
@@ -57,14 +66,59 @@ const Detector = (p) => {
         console.log(result);
         p.background(255);
         p.image(p.video, 0, 0, p.width, p.height);
-        p.rect(0 + 40, 0 + 40, p.width - 80, p.height - 80);
+        //Big rectangle
+        const R1 = {
+            x: 0 + 80,
+            y: 0 + 40,
+            w: p.width - 160,
+            h: p.height - 60,
+        };
+        p.stroke("red");
+        p.strokeWeight(3);
+        p.rect(R1.x, R1.y, R1.w, R1.h);
 
+        let R2;
         if (result) {
             if (result.length > 0) {
-                drawBox(result);
+                R2 = drawBox(result);
             }
         }
         faceApi.detect(gotFaces);
+
+        // Collision detection:
+        if (R2) {
+            p.stroke(0, 255, 0);
+            p.strokeWeight(1.5);
+            p.textSize(15);
+            p.text("Getting Face...", R1.x, R1.y - 5);
+
+            if (
+                R2.x + R2.w < R1.x + R1.w &&
+                R2.x > R1.x &&
+                R2.y > R1.y &&
+                R2.y + R2.h < R1.y + R1.h
+            ) {
+                //alarm.stop();
+                console.log("Inside of R1");
+                p.stroke(0, 255, 0);
+                p.strokeWeight(1.5);
+                p.textSize(15);
+                p.text("Inside of R1", R2.x, R2.y - 5);
+            } else {
+                //alarm.play();
+                console.log("Outside of R1");
+                p.stroke("red");
+                p.strokeWeight(1.5);
+                p.textSize(15);
+                p.text("Outside of R1", R2.x, R2.y - 5);
+            }
+        } else {
+            p.stroke("red");
+            p.strokeWeight(1.5);
+            p.textSize(15);
+            p.text("No Face", R1.x, R1.y - 5);
+            console.log("Can not Detect the face");
+        }
     };
 
     const drawBox = (detections) => {
@@ -76,9 +130,17 @@ const Detector = (p) => {
             const boxHeight = alignedRect._box._height;
 
             p.noFill();
-            p.stroke(161, 95, 251);
+            p.stroke(0, 255, 0);
             p.strokeWeight(2);
             p.rect(x, y, boxWidth, boxHeight);
+
+            let boxDimension = {
+                x: x,
+                y: y,
+                w: boxWidth,
+                h: boxHeight,
+            };
+            return boxDimension;
         }
     };
 };

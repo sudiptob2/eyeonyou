@@ -1,3 +1,18 @@
-.background-color{
-    background-color: #2E2F36 !important;
+.background-color {
+    background-color: #2e2f36 !important;
+}
+
+.App {
+    position: relative;
+    min-height: 100vh;
+}
+.content-wrap {
+    padding-bottom: 4rem;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 4rem;
 }

@@ -6,20 +6,24 @@ import "./App.css";
 import FooterPage from "./components/FooterView/FooterPage";
 
 function App() {
-  useEffect(() => {
-    document.body.classList.add("background-color");
-    return () => {
-      document.body.classList.remove("background-color");
-    };
-  }, []);
+    useEffect(() => {
+        document.body.classList.add("background-color");
+        return () => {
+            document.body.classList.remove("background-color");
+        };
+    }, []);
 
-  return (
-    <div className="App">
-      {/*<FrontView/>*/}
-      <IntroView />
-      <footer>{<FooterPage />}</footer>
-    </div>
-  );
+    return (
+        <div className="App">
+            <div className="content-wrap">
+                {/*<FrontView/>*/}
+                <IntroView />
+            </div>
+            <footer className="footer">
+                <FooterPage />
+            </footer>
+        </div>
+    );
 }
 
 export default App;
