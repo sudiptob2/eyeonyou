@@ -4,6 +4,7 @@ import soundFile from "./soundfile.mp3";
 
 const Detector = (p) => {
     let faceApi;
+    let audio = new Audio('https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3');
     const cameraOptions = {
         audio: false,
         video: {
@@ -100,6 +101,9 @@ const Detector = (p) => {
             ) {
                 //alarm.stop();
                 console.log("Inside of R1");
+                document.body.classList.remove("background-color-alter");
+                audio.pause();
+                audio.currentTime = 0;
                 p.stroke(0, 255, 0);
                 p.strokeWeight(1.5);
                 p.textSize(15);
@@ -107,6 +111,8 @@ const Detector = (p) => {
             } else {
                 //alarm.play();
                 console.log("Outside of R1");
+                document.body.classList.add("background-color-alter");
+                audio.play();
                 p.stroke("red");
                 p.strokeWeight(1.5);
                 p.textSize(15);
