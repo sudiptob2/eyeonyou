@@ -34,7 +34,7 @@
 
 .startButtonBorder {
     border: 2px solid var(--acent-color) !important;
-    border-radius: 0 !important;
+    border-radius: 12px !important;
 }
 
 .startButton {

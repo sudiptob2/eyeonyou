@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-// import CameraLayout from "./components/CameraView/CameraLayout";
 import IntroView from "./components/IntroView";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -16,12 +15,9 @@ function App() {
     return (
         <div className="App">
             <div className="content-wrap">
-                {/*<FrontView/>*/}
                 <IntroView />
             </div>
-            <footer className="footer">
-                <FooterPage />
-            </footer>
+            <FooterPage />
         </div>
     );
 }

@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from "react";
 
 const Logo = () => {
     const eyeColor = "#94dfb4";
 
-    const arrowDirections = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'];
+    const arrowDirections = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"];
 
     const [getXAdd, setXAdd] = useState(0);
     const [getYAdd, setYAdd] = useState(0);
@@ -11,7 +11,7 @@ const Logo = () => {
     const eyeRadius = 14;
     const eyeLeft = {
         cx: 42.887,
-        cy: 259.405
+        cy: 259.405,
     };
     const eyeRight = {
         cx: 87.627,
@@ -22,17 +22,17 @@ const Logo = () => {
 
     const eyeBallLeft = {
         cx: getXAdd + 42.683,
-        cy: getYAdd + 260.914
+        cy: getYAdd + 260.914,
     };
 
     const eyeBallRight = {
         cx: getXAdd + 87.423,
-        cy: getYAdd + 260.945
+        cy: getYAdd + 260.945,
     };
 
-
     const act = () => {
-        const selection = arrowDirections[~~(Math.random() * arrowDirections.length)];
+        const selection =
+            arrowDirections[~~(Math.random() * arrowDirections.length)];
         onArrowAction(selection);
     };
 
@@ -41,10 +41,9 @@ const Logo = () => {
         return () => {
             clearInterval(actionInterval);
         };
-
     }, []);
 
-    const radiusBoundary = (eyeRadius / 2) - 1;
+    const radiusBoundary = eyeRadius / 2 - 1;
     const onArrowAction = (e) => {
         switch (e) {
             case arrowDirections[0]:
@@ -72,8 +71,13 @@ const Logo = () => {
         }
     };
 
-    /*      width="505.894"
-            height="297.894"  */
+    /*
+
+        Original width and height of the logo  
+        width="505.894"
+        height="297.894"  
+    
+    */
 
     return (
         <svg

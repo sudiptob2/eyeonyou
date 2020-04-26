@@ -1,23 +1,42 @@
 import React from "react";
-import './FooterPage.css'
+import "./FooterPage.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faLinkedin,
+    faGithub,
+    faFacebook,
+} from "@fortawesome/free-brands-svg-icons";
+import { faCopyright } from "@fortawesome/free-solid-svg-icons";
 
 const FooterPage = () => {
-  return (
-    <div id= "footer-main-container">
-        <div className="copyright">
-            <p>copyright 2020 - Eyeonyou</p>
-        </div>
-        <div className="social">
-            <a href="#" className="support">Contact Us</a>
-            <div className = "socialLinks">
-              <a href="#" className="face">facebook | </a>
-              <a href="#" className="tweet">twitter | </a>
-              <a href="#" className="linked">LinkedIn </a>
-            </div>
+    return (
+        <footer className="footer">
+            <div class="footer-container">
+                <a href="#" class="item1">
+                    Privacy policy
+                </a>
 
-        </div>
-    </div>
-  );
-}
+                <div class="item1-2">
+                    <span style={{ paddingRight: 5 }}>Copyright </span>
+                    <FontAwesomeIcon icon={faCopyright} />{" "}
+                    <span style={{ paddingLeft: 5 }}>
+                        {new Date().getFullYear()} EyeOnYou. All Rights
+                        Reserved.
+                    </span>
+                </div>
+                <div class="item2">Contact</div>
+                <div class="item3">
+                    <FontAwesomeIcon icon={faGithub} />
+                </div>
+                <div class="item4">
+                    <FontAwesomeIcon icon={faFacebook} />
+                </div>
+                <div class="item5">
+                    <FontAwesomeIcon icon={faLinkedin} />
+                </div>
+            </div>
+        </footer>
+    );
+};
 
 export default FooterPage;

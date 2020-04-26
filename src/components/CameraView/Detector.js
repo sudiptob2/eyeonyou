@@ -4,18 +4,18 @@ import soundFile from "./soundfile.mp3";
 
 const Detector = (p) => {
     let faceApi;
-    let audio = new Audio('https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3');
+    let cnvPosX, cnvPosY;
+    const ratio = 360 / 270;
+    let isLoading = true;
+    let audio = new Audio(soundFile);
+    let gif_loadImg, gif_createImg;
+
     const cameraOptions = {
         audio: false,
         video: {
             facingMode: "user",
         },
     };
-    const ratio = 360 / 270;
-    let isLoading = true;
-    let gif_loadImg, gif_createImg;
-    let alarm;
-    let cnvPosX, cnvPosY;
     const faceOptions = {
         withLandmarks: true,
         withExpressions: false,
@@ -24,9 +24,6 @@ const Detector = (p) => {
 
     p.setup = () => {
         const cnv = p.createCanvas(350 * ratio, 350);
-        // Loading the sound file
-        //p.soundFormats("mp3", "ogg");
-        //alarm = p.loadSound(soundFile);
         //Loader animation code
         gif_createImg = p.createImg(demo);
         gif_loadImg = p.loadImage(demo);
@@ -78,6 +75,7 @@ const Detector = (p) => {
         p.strokeWeight(3);
         p.rect(R1.x, R1.y, R1.w, R1.h);
 
+        //Getting small rectangle
         let R2;
         if (result) {
             if (result.length > 0) {
@@ -99,7 +97,6 @@ const Detector = (p) => {
                 R2.y > R1.y &&
                 R2.y + R2.h < R1.y + R1.h
             ) {
-                //alarm.stop();
                 console.log("Inside of R1");
                 document.body.classList.remove("background-color-alter");
                 audio.pause();
@@ -109,7 +106,6 @@ const Detector = (p) => {
                 p.textSize(15);
                 p.text("Inside of R1", R2.x, R2.y - 5);
             } else {
-                //alarm.play();
                 console.log("Outside of R1");
                 document.body.classList.add("background-color-alter");
                 audio.play();
