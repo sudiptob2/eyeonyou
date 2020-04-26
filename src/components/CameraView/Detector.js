@@ -9,6 +9,7 @@ const Detector = (p) => {
     let isLoading = true;
     let audio = new Audio(soundFile);
     let gif_loadImg, gif_createImg;
+    let consistencyArr = [];
 
     const cameraOptions = {
         audio: false,
@@ -89,7 +90,8 @@ const Detector = (p) => {
             p.stroke(0, 255, 0);
             p.strokeWeight(1.5);
             p.textSize(15);
-            p.text("Getting Face...", R1.x, R1.y - 5);
+            p.text("We got you!", R1.x, R1.y - 5);
+            consistencyArr = [];
 
             if (
                 R2.x + R2.w < R1.x + R1.w &&
@@ -119,7 +121,12 @@ const Detector = (p) => {
             p.strokeWeight(1.5);
             p.textSize(15);
             p.text("No Face", R1.x, R1.y - 5);
-            console.log("Can not Detect the face");
+            console.log("No Face");
+            consistencyArr.push(0);
+            if (consistencyArr.length > 8) {
+                document.body.classList.add("background-color-alter");
+                audio.play();
+            }
         }
     };
 

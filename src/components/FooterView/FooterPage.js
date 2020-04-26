@@ -1,5 +1,6 @@
 import React from "react";
 import "./FooterPage.css";
+import PrivacyModal from "../ModalView/PrivacyModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faLinkedin,
@@ -9,14 +10,15 @@ import {
 import { faCopyright } from "@fortawesome/free-solid-svg-icons";
 
 const FooterPage = () => {
+    const [showPrivacy, setShowPrivacy] = React.useState(false);
     return (
         <footer className="footer">
-            <div class="footer-container">
-                <a href="#" class="item1">
-                    Privacy policy
-                </a>
+            <div className="footer-container">
+                <div className="item1">
+                    <PrivacyModal />
+                </div>
 
-                <div class="item1-2">
+                <div className="item2">
                     <span style={{ paddingRight: 5 }}>Copyright </span>
                     <FontAwesomeIcon icon={faCopyright} />{" "}
                     <span style={{ paddingLeft: 5 }}>
@@ -24,16 +26,17 @@ const FooterPage = () => {
                         Reserved.
                     </span>
                 </div>
-                <div class="item2">Contact</div>
-                <div class="item3">
+                <div className="item3">
                     <FontAwesomeIcon icon={faGithub} />
                 </div>
-                <div class="item4">
+                <div className="item4">
                     <FontAwesomeIcon icon={faFacebook} />
                 </div>
-                <div class="item5">
+                <div className="item5">
                     <FontAwesomeIcon icon={faLinkedin} />
                 </div>
+
+                {showPrivacy && <PrivacyModal click={true} />}
             </div>
         </footer>
     );

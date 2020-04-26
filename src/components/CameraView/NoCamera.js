@@ -6,9 +6,6 @@ const NoCamera = () => {
     return (
         <div className="titleText text-center">
             <h1>Please connect your webcam</h1>
-            <div>
-                <Logo />
-            </div>
         </div>
     );
 };
