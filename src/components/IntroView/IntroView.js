@@ -5,12 +5,12 @@ import CameraView from "../CameraView/CameraView";
 import NoCamera from "../CameraView/NoCamera";
 
 const IntroView = () => {
+    const [clicked, setClicked] = useState(false);
+    const [hasCamera, setHasCamera] = useState(true);
     const letsDoItClick = (e) => {
         setClicked(true);
         checkCamera();
     };
-    const [clicked, setClicked] = useState(false);
-    const [hasCamera, setHasCamera] = useState(true);
 
     const checkCamera = () => {
         navigator.getMedia =
