@@ -1,11 +1,14 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import Detector from "./Detector";
 import "./CameraView.css";
 import p5 from "p5";
 
 const CameraView = () => {
     const videoRef = useRef(null);
-    new p5(Detector, videoRef.current);
+
+    useEffect(() => {
+        new p5(Detector, videoRef.current);
+    }, []);
 
     return (
         <div className="cameraview">

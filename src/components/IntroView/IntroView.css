@@ -89,3 +89,10 @@
         font-size: 13px;
     }
 }
+
+@media (min-width: 577px) and (max-width: 990px) {
+    .startButton {
+        width: 50% !important;
+        font-size: 27px !important;
+    }
+}

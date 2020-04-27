@@ -3,7 +3,6 @@ import Logo from "./Logo";
 import "./IntroView.css";
 import CameraView from "../CameraView/CameraView";
 import NoCamera from "../CameraView/NoCamera";
-
 const IntroView = () => {
     const [clicked, setClicked] = useState(false);
     const [hasCamera, setHasCamera] = useState(true);
