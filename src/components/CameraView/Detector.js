@@ -1,13 +1,12 @@
 import * as ml5 from "ml5";
 import demo from "./loading.gif";
-import soundFile from "./soundfile.mp3";
+import {playAudio , stopAudio} from "./SoundNotification";
 
 const Detector = (p) => {
     let faceApi;
     let cnvPosX, cnvPosY;
     const ratio = 360 / 270;
     let isLoading = true;
-    let audio = new Audio(soundFile);
     let gif_loadImg, gif_createImg;
     let consistencyArr = [];
 
@@ -53,16 +52,16 @@ const Detector = (p) => {
     const faceReady = () => {
         faceApi.detect(gotFaces);
         isLoading = false;
-        console.log("Camera Loading complete");
+        //console.log("Camera Loading complete");
     };
 
     let gotFaces = (error, result) => {
         if (error) {
-            console.log(error);
+            //console.log(error);
             return;
         }
 
-        console.log(result);
+        //console.log(result);
         p.background(255);
         p.image(p.video, 0, 0, p.width, p.height);
         //Big rectangle
@@ -99,10 +98,9 @@ const Detector = (p) => {
                 R2.y > R1.y &&
                 R2.y + R2.h < R1.y + R1.h
             ) {
-                console.log("Inside of R1");
+                //console.log("Inside of R1");
                 document.body.classList.remove("background-color-alter");
-                audio.pause();
-                audio.currentTime = 0;
+                stopAudio();
                 p.stroke(0, 255, 0);
                 p.strokeWeight(1.5);
                 p.textSize(15);
@@ -110,7 +108,7 @@ const Detector = (p) => {
             } else {
                 console.log("Outside of R1");
                 document.body.classList.add("background-color-alter");
-                audio.play();
+                playAudio();
                 p.stroke("red");
                 p.strokeWeight(1.5);
                 p.textSize(15);
@@ -123,9 +121,9 @@ const Detector = (p) => {
             p.text("No Face", R1.x, R1.y - 5);
             console.log("No Face");
             consistencyArr.push(0);
-            if (consistencyArr.length > 8) {
+            if (consistencyArr.length > 40) {
                 document.body.classList.add("background-color-alter");
-                audio.play();
+                playAudio();
             }
         }
     };
