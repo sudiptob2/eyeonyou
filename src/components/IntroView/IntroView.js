@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Logo from "./Logo";
 import "./IntroView.css";
-import CameraView from "../CameraView/CameraView";
-import NoCamera from "../CameraView/NoCamera";
 import { Link } from "react-router-dom";
 const IntroView = () => {
     return (
