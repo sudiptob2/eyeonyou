@@ -3,6 +3,7 @@ import Logo from "./Logo";
 import "./IntroView.css";
 import CameraView from "../CameraView/CameraView";
 import NoCamera from "../CameraView/NoCamera";
+import { Link } from "react-router-dom";
 const IntroView = () => {
     const [clicked, setClicked] = useState(false);
     const [hasCamera, setHasCamera] = useState(true);
@@ -56,13 +57,15 @@ const IntroView = () => {
                     </div>
 
                     <div className="start row justify-content-center p-2">
-                        <button
-                            type="button"
-                            onClick={letsDoItClick}
-                            className="btn startButton startButtonBorder"
-                        >
-                            Try EyeOnYou ->
-                        </button>
+                        <Link to="/cam">
+                            <button
+                                type="button"
+                                // onClick={letsDoItClick}
+                                className="btn startButton startButtonBorder"
+                            >
+                                Try EyeOnYou ->
+                            </button>
+                        </Link>
                     </div>
                     <div className="infoText text-center row justify-content-center p-2">
                         <p className="textDetails">
