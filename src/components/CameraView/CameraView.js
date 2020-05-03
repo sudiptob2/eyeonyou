@@ -3,7 +3,6 @@ import Detector from "./Detector";
 import "./CameraView.css";
 import p5 from "p5";
 import NoCamera from "./NoCamera";
-import { Link } from "react-router-dom";
 const CameraView = () => {
     const videoRef = useRef(null);
     const [hasCamera, setHasCamera] = useState(true);
@@ -17,13 +16,13 @@ const CameraView = () => {
     };
 
     const checkCamera = () => {
-        navigator.getMedia =
-            navigator.getUserMedia || // use the proper vendor prefix
-            navigator.webkitGetUserMedia ||
-            navigator.mozGetUserMedia ||
-            navigator.msGetUserMedia;
+        navigator.mediaDevices.getMedia =
+            navigator.mediaDevices.getUserMedia || // use the proper vendor prefix
+            navigator.mediaDevices.webkitGetUserMedia ||
+            navigator.mediaDevices.mozGetUserMedia ||
+            navigator.mediaDevices.msGetUserMedia;
 
-        navigator.getMedia(
+        navigator.mediaDevices.getMedia(
             { video: true },
             function () {
                 console.log("true");
