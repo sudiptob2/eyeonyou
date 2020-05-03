@@ -9,6 +9,7 @@
 .App {
     position: relative;
     min-height: 100vh;
+    overflow: hidden;
 }
 .content-wrap {
     padding-bottom: 4rem;

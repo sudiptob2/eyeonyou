@@ -1,20 +1,42 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Detector from "./Detector";
 import "./CameraView.css";
 import p5 from "p5";
+import NoCamera from "./NoCamera";
 
 const CameraView = () => {
     const videoRef = useRef(null);
+    const [hasCamera, setHasCamera] = useState(true);
+
+    const checkCamera = () => {
+        navigator.getMedia =
+            navigator.getUserMedia || // use the proper vendor prefix
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia ||
+            navigator.msGetUserMedia;
+
+        navigator.getMedia(
+            { video: true },
+            function () {
+                console.log("true");
+                setHasCamera(true);
+                return true;
+            },
+            function () {
+                console.log("false");
+                setHasCamera(false);
+
+                return false;
+            }
+        );
+    };
 
     useEffect(() => {
         new p5(Detector, videoRef.current);
     }, []);
+    checkCamera();
 
-    return (
-        <div className="cameraview">
-            <div ref={videoRef}></div>
-        </div>
-    );
+    return <div>{hasCamera ? <div ref={videoRef}></div> : <NoCamera />}</div>;
 };
 
 export default CameraView;
