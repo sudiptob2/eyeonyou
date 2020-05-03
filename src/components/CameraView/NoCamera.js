@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import "../IntroView/IntroView.css";
 import CameraView from "../CameraView/CameraView";
+import Sadcat from "./sadcat.svg";
 
 const NoCamera = () => {
     const [clicked, setClicked] = useState(false);
     const [hasCamera, setHasCamera] = useState(true);
-    const style = {
-        paddingTop: "30vh",
-    };
     const letsDoItClick = (e) => {
         setClicked(true);
         checkCamera();
@@ -37,7 +35,16 @@ const NoCamera = () => {
     return (
         <div>
             {!clicked && (
-                <div className="text-center" style={style}>
+                <div className="text-center">
+                    <img
+                        style={{
+                            paddingTop: "5vh",
+                            maxHeight: 200,
+                            maxWidth: 200,
+                        }}
+                        src={Sadcat}
+                        alt="I am a sad kitty"
+                    />
                     <div className="title row justify-content-center title-custom-padding">
                         <h1 className="titleText text-center">
                             Please connect your webcam

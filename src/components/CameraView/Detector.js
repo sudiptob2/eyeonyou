@@ -27,7 +27,7 @@ const Detector = (p) => {
         const cnv = p.createCanvas(350 * ratio, 350);
         //Loader animation code
         gif_createImg = p.createImg(demo);
-        //gif_loadImg = p.loadImage(demo);
+        gif_loadImg = p.loadImage(demo);
 
         // Camera video code
         p.video = p.createCapture(cameraOptions);
