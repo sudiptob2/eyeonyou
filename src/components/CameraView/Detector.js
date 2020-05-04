@@ -1,10 +1,13 @@
 import * as ml5 from "ml5";
 import demo from "./loading.gif";
-import {playAudio , stopAudio} from "./SoundNotification";
+import muteIcon from "./interface.svg";
+import { playAudio, stopAudio } from "./SoundNotification";
+import { getSoundOption, setSoundOption } from "./SoundNotification";
 
 const Detector = (p) => {
     let faceApi;
     let cnvPosX, cnvPosY;
+    let startBtn, muteBtn;
     const ratio = 360 / 270;
     let isLoading = true;
     let gif_loadImg, gif_createImg;
@@ -35,8 +38,7 @@ const Detector = (p) => {
         //Centerize the cnv
         cnvPosX = (p.windowWidth - p.width) / 2;
         cnvPosY = (p.windowHeight - p.height) / 2;
-        cnv.position(cnvPosX, cnvPosY);
-
+        cnv.position(cnvPosX, cnvPosY - cnvPosY / 2);
         p.video.hide();
     };
 
@@ -46,9 +48,29 @@ const Detector = (p) => {
             gif_createImg.position(cnvPosX + 90 * ratio, cnvPosY + 25 * ratio);
         } else {
             gif_createImg.hide();
+
+            startBtn = p.createButton("Start Focusing");
+            startBtn.size(80);
+            startBtn.position(cnvPosX, cnvPosY - cnvPosY / 2);
+            startBtn.mousePressed();
+            startBtn.style("color", "#3b9b53");
+            startBtn.style("font-size", "10px");
+
+            muteBtn = p.createButton("Mute");
+            muteBtn.size(80);
+            getSoundOption() ? muteBtn.html("Unmute") : muteBtn.html("Mute");
+            muteBtn.position(cnvPosX, cnvPosY - cnvPosY / 2 + 20);
+            muteBtn.mousePressed(toggleSoundAlert);
+            muteBtn.style("color", "#ff430f");
+            muteBtn.style("font-size", "10px");
         }
     };
 
+    const toggleSoundAlert = () => {
+        setSoundOption(!getSoundOption());
+
+        console.log(getSoundOption());
+    };
     const faceReady = () => {
         faceApi.detect(gotFaces);
         isLoading = false;
@@ -89,7 +111,7 @@ const Detector = (p) => {
             p.stroke(0, 255, 0);
             p.strokeWeight(1.5);
             p.textSize(15);
-            p.text("We got you!", R1.x, R1.y - 5);
+            p.text("We got you!", R1.x + 50, R1.y - 5);
             consistencyArr = [];
 
             if (

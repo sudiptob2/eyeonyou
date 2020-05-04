@@ -3,26 +3,30 @@ import Detector from "./Detector";
 import "./CameraView.css";
 import p5 from "p5";
 import NoCamera from "./NoCamera";
+import { Link } from "react-router-dom";
+import "./CameraView.css";
 const CameraView = () => {
     const videoRef = useRef(null);
     const [hasCamera, setHasCamera] = useState(true);
 
     const openWindow = () => {
-        window.open(
-            window.location.origin + "/cam",
-            "_blank",
-            "toolbar=0,location=0,menubar=0 resizable=yes, width=200,height=300"
-        );
+        // window.open(
+        //     window.location.origin + "/cam",
+        //     "_blank",
+        //     "toolbar=0,location=0,menubar=0 resizable=yes, width=200,height=300"
+        // );
+        // window.open("", "_self");
+        // window.close();
     };
 
     const checkCamera = () => {
-        navigator.mediaDevices.getMedia =
-            navigator.mediaDevices.getUserMedia || // use the proper vendor prefix
-            navigator.mediaDevices.webkitGetUserMedia ||
-            navigator.mediaDevices.mozGetUserMedia ||
-            navigator.mediaDevices.msGetUserMedia;
+        navigator.getMedia =
+            navigator.getUserMedia || // use the proper vendor prefix
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia ||
+            navigator.msGetUserMedia;
 
-        navigator.mediaDevices.getMedia(
+        navigator.getMedia(
             { video: true },
             function () {
                 console.log("true");
