@@ -1,13 +1,17 @@
 import * as ml5 from "ml5";
 import demo from "./loading.gif";
 import muteIcon from "./interface.svg";
+import muteIconRed from "./interface_red.svg";
+import powerIcon from "./power.svg";
 import { playAudio, stopAudio } from "./SoundNotification";
 import { getSoundOption, setSoundOption } from "./SoundNotification";
 
 const Detector = (p) => {
     let faceApi;
     let cnvPosX, cnvPosY;
-    let startBtn, muteBtn;
+    let startBtn,
+        muteBtn,
+        isCreated = false;
     const ratio = 360 / 270;
     let isLoading = true;
     let gif_loadImg, gif_createImg;
@@ -29,6 +33,7 @@ const Detector = (p) => {
         const cnv = p.createCanvas(350 * ratio, 350);
         //Loader animation code
         gif_createImg = p.createImg(demo);
+        gif_createImg.size(100, 100);
         gif_loadImg = p.loadImage(demo);
 
         // Camera video code
@@ -38,38 +43,82 @@ const Detector = (p) => {
         //Centerize the cnv
         cnvPosX = (p.windowWidth - p.width) / 2;
         cnvPosY = (p.windowHeight - p.height) / 2;
-        cnv.position(cnvPosX, cnvPosY - cnvPosY / 2);
+        cnv.position(cnvPosX, cnvPosY);
         p.video.hide();
     };
 
     p.draw = () => {
         // Displaying the loader
         if (isLoading) {
-            gif_createImg.position(cnvPosX + 90 * ratio, cnvPosY + 25 * ratio);
+            gif_createImg.position(cnvPosX + 135 * ratio, cnvPosY + 80 * ratio);
         } else {
             gif_createImg.hide();
+            createButtons();
+        }
+    };
 
-            startBtn = p.createButton("Start Focusing");
-            startBtn.size(80);
-            startBtn.position(cnvPosX, cnvPosY - cnvPosY / 2);
-            startBtn.mousePressed();
-            startBtn.style("color", "#3b9b53");
+    const createButtons = () => {
+        if (isCreated === false) {
+            let col = p.color(25, 23, 200, 0);
+
+            startBtn = p.createButton(
+                `<img src= ${powerIcon} alt="mute"  height="32" width="32"/>`
+            );
+            startBtn.position(cnvPosX, cnvPosY);
+            startBtn.mousePressed(openWindow);
+            startBtn.style("background-color", col);
             startBtn.style("font-size", "10px");
+            startBtn.style("border", "none");
+            startBtn.style("outline", "none");
 
-            muteBtn = p.createButton("Mute");
-            muteBtn.size(80);
-            getSoundOption() ? muteBtn.html("Unmute") : muteBtn.html("Mute");
-            muteBtn.position(cnvPosX, cnvPosY - cnvPosY / 2 + 20);
+            muteBtn = p.createButton("Sound control");
+
+            muteBtn.position(cnvPosX, cnvPosY + 40);
             muteBtn.mousePressed(toggleSoundAlert);
-            muteBtn.style("color", "#ff430f");
+            muteBtn.style("background-color", col);
             muteBtn.style("font-size", "10px");
+            muteBtn.style("border", "none");
+            muteBtn.style("outline", "none");
+
+            if (getSoundOption()) {
+                muteBtn.html(
+                    `<img src= ${muteIcon} alt="mute"  height="32" width="32"/>`
+                );
+            } else {
+                muteBtn.html(
+                    `<img src= ${muteIconRed} alt="mute"  height="32" width="32"/>`
+                );
+            }
+
+            isCreated = true;
         }
     };
 
     const toggleSoundAlert = () => {
         setSoundOption(!getSoundOption());
-
+        if (getSoundOption()) {
+            muteBtn.html(
+                `<img src= ${muteIcon} alt="mute"  height="32" width="32"/>`
+            );
+        } else {
+            muteBtn.html(
+                `<img src= ${muteIconRed} alt="mute"  height="32" width="32"/>`
+            );
+        }
         console.log(getSoundOption());
+    };
+
+    const openWindow = () => {
+        let height = 200;
+        let width = 200;
+        let top = window.innerHeight - height;
+        let left = window.innerWidth - width;
+
+        window.open(
+            window.location.origin + "/cam",
+            "_blank",
+            `toolbar=0,location=0,menubar=0 resizable=yes,left=${left},top=${top} width=${width},height=${height}`
+        );
     };
     const faceReady = () => {
         faceApi.detect(gotFaces);
@@ -111,7 +160,7 @@ const Detector = (p) => {
             p.stroke(0, 255, 0);
             p.strokeWeight(1.5);
             p.textSize(15);
-            p.text("We got you!", R1.x + 50, R1.y - 5);
+            p.text("We got you!", R1.x, R1.y - 5);
             consistencyArr = [];
 
             if (

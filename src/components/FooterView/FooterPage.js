@@ -14,30 +14,11 @@ import {
 import { faCopyright } from "@fortawesome/free-solid-svg-icons";
 
 const FooterPage = () => {
-    const soundSwitch = (e) => {
-        //setSoundOptionState(!getSoundOptionState);
-        setSoundOption(!getSoundOption());
-        console.log(getSoundOption());
-    };
-
     return (
         <footer className="footer">
             <div className="footer-container">
                 <div className="item1">
                     <PrivacyModal />
-                    <div className="custom-control custom-switch">
-                        <input
-                            type="checkbox"
-                            className="custom-control-input"
-                            id="customSwitch1"
-                            defaultChecked={getSoundOption()}
-                            onChange={soundSwitch}
-                        />
-                        <label
-                            className="custom-control-label"
-                            htmlFor="customSwitch1"
-                        ></label>
-                    </div>
                 </div>
 
                 <div className="item2">

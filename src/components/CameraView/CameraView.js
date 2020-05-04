@@ -9,16 +9,6 @@ const CameraView = () => {
     const videoRef = useRef(null);
     const [hasCamera, setHasCamera] = useState(true);
 
-    const openWindow = () => {
-        // window.open(
-        //     window.location.origin + "/cam",
-        //     "_blank",
-        //     "toolbar=0,location=0,menubar=0 resizable=yes, width=200,height=300"
-        // );
-        // window.open("", "_self");
-        // window.close();
-    };
-
     const checkCamera = () => {
         navigator.getMedia =
             navigator.getUserMedia || // use the proper vendor prefix
@@ -44,21 +34,13 @@ const CameraView = () => {
 
     useEffect(() => {
         new p5(Detector, videoRef.current);
+        //console.log(videoRef);
     }, []);
     checkCamera();
 
     return (
         <div className="container">
-            <div className="row">
-                <div className="col-xs-12">
-                    <button onClick={openWindow}>Start</button>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-xs-12">
-                    {hasCamera ? <div ref={videoRef}></div> : <NoCamera />}
-                </div>
-            </div>
+            {hasCamera ? <div ref={videoRef}></div> : <NoCamera />}
         </div>
     );
 };
