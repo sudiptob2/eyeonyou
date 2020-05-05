@@ -7,6 +7,8 @@ import { playAudio, stopAudio } from "./SoundNotification";
 import { getSoundOption, setSoundOption } from "./SoundNotification";
 
 const Detector = (p) => {
+    let cnv;
+    let isHidden = false;
     let faceApi;
     let cnvPosX, cnvPosY;
     let startBtn,
@@ -30,7 +32,7 @@ const Detector = (p) => {
     };
 
     p.setup = () => {
-        const cnv = p.createCanvas(350 * ratio, 350);
+        cnv = p.createCanvas(350 * ratio, 350);
         //Loader animation code
         gif_createImg = p.createImg(demo);
         gif_createImg.size(100, 100);
@@ -40,7 +42,7 @@ const Detector = (p) => {
         p.video = p.createCapture(cameraOptions);
         p.video.size(p.width, p.height);
         faceApi = ml5.faceApi(p.video, faceOptions, faceReady);
-        //Centerize the cnv
+        // Cauterize the cnv
         cnvPosX = (p.windowWidth - p.width) / 2;
         cnvPosY = (p.windowHeight - p.height) / 2;
         cnv.position(cnvPosX, cnvPosY);
@@ -54,6 +56,11 @@ const Detector = (p) => {
         } else {
             gif_createImg.hide();
             createButtons();
+            // if (window.innerWidth < 250 && !isHidden) {
+            //     console.log(window.innerWidth);
+            //     cnv.hide();
+            //     isHidden = true;
+            // }
         }
     };
 
@@ -192,7 +199,7 @@ const Detector = (p) => {
             p.text("No Face", R1.x, R1.y - 5);
             console.log("No Face");
             consistencyArr.push(0);
-            if (consistencyArr.length > 40) {
+            if (consistencyArr.length > 20) {
                 document.body.classList.add("background-color-alter");
                 playAudio();
             }

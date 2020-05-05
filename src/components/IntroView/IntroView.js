@@ -6,7 +6,7 @@ const IntroView = () => {
     return (
         <div className="introView container">
             <div className="logo row justify-content-center p-2">
-                <Logo />
+                <Logo width={426} height={251} />
             </div>
             <div className="title row justify-content-center title-custom-padding">
                 <h1 className="titleText text-center">
@@ -20,7 +20,7 @@ const IntroView = () => {
                 </p>
             </div>
             <Link to="/cam" style={{ textDecoration: "none" }}>
-                <div className="start row justify-content-center p-2">
+                <div className="start row justify-content-center p-0">
                     <button
                         className="btn startButton startButtonBorder"
                         type="button"
@@ -29,7 +29,7 @@ const IntroView = () => {
                     </button>
                 </div>
             </Link>
-            <div className="infoText text-center row justify-content-center p-2">
+            <div className="infoText text-center row justify-content-center p-4">
                 <p className="textDetails">
                     Built with TensorFlow.js + p5.js + React.js. Learn more
                     about{" "}

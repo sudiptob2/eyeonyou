@@ -1,3 +1,13 @@
-.hide-item {
-    display: none;
+.producing {
+    font-size: x-small;
+    color: var(--main-bg-color);
+    font-family: "Quicksand", sans-serif !important;
+}
+.toggle-button {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none !important;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none !important;
 }

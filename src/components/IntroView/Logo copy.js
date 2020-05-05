@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const Logo = (props) => {
+const Logo = () => {
     const eyeColor = "#94dfb4";
 
     const arrowDirections = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"];
@@ -82,8 +82,8 @@ const Logo = (props) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width={props.width}
-            height={props.height}
+            width="425.894"
+            height="250.94"
             version="1.1"
             viewBox="0 0 133.851 78.818"
         >
