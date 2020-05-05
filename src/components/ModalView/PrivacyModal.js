@@ -1,6 +1,6 @@
 import React from "react";
-import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
+import "react-responsive-modal/styles.css";
 
 const PrivacyModal = (props) => {
     const [open, setOpen] = React.useState(false);

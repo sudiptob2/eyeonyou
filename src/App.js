@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import IntroView from "./components/IntroView";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import FooterPage from "./components/FooterView/FooterPage";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import "./App.css";
 import CameraView from "./components/CameraView/CameraView";
+import FooterPage from "./components/FooterView/FooterPage";
+import IntroView from "./components/IntroView";
 
 function App() {
     useEffect(() => {
