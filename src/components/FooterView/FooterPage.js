@@ -1,17 +1,13 @@
-import React, { useEffect } from "react";
-import "./FooterPage.css";
-import PrivacyModal from "../ModalView/PrivacyModal";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    getSoundOption,
-    setSoundOption,
-} from "../CameraView/SoundNotification";
-import {
-    faLinkedin,
-    faGithub,
     faFacebook,
+    faGithub,
+    faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { faCopyright } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
+import PrivacyModal from "../ModalView/PrivacyModal";
+import "./FooterPage.css";
 
 const FooterPage = () => {
     return (
@@ -29,15 +25,30 @@ const FooterPage = () => {
                         Reserved.
                     </span>
                 </div>
-                <div className="item3">
+                <a
+                    href="https://github.com/sudiptob2/simple-react-footer"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="item3"
+                >
                     <FontAwesomeIcon icon={faGithub} />
-                </div>
-                <div className="item4">
+                </a>
+                <a
+                    href="http://fb.com/sudiptob2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="item4"
+                >
                     <FontAwesomeIcon icon={faFacebook} />
-                </div>
-                <div className="item5">
-                    <FontAwesomeIcon icon={faLinkedin} />
-                </div>
+                </a>
+                <a
+                    href="https://www.youtube.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="item5"
+                >
+                    <FontAwesomeIcon icon={faYoutube} />
+                </a>
 
                 {false && <PrivacyModal click={true} />}
             </div>

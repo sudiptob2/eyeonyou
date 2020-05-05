@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import Logo from "./Logo";
-import "./IntroView.css";
+import React from "react";
 import { Link } from "react-router-dom";
+import "./IntroView.css";
+import Logo from "./Logo";
 const IntroView = () => {
     return (
         <div className="introView container">

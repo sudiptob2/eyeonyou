@@ -1,14 +1,17 @@
 import * as ml5 from "ml5";
-import demo from "./loading.gif";
-import muteIcon from "./interface.svg";
-import muteIconRed from "./interface_red.svg";
-import powerIcon from "./power.svg";
-import { playAudio, stopAudio } from "./SoundNotification";
-import { getSoundOption, setSoundOption } from "./SoundNotification";
+import muteIcon from "../../assets/images/interface.svg";
+import muteIconRed from "../../assets/images/interface_red.svg";
+import demo from "../../assets/images/loading.gif";
+import powerIcon from "../../assets/images/power.svg";
+import {
+    getSoundOption,
+    playAudio,
+    setSoundOption,
+    stopAudio,
+} from "./SoundNotification";
 
 const Detector = (p) => {
     let cnv;
-    let isHidden = false;
     let faceApi;
     let cnvPosX, cnvPosY;
     let startBtn,
@@ -16,7 +19,7 @@ const Detector = (p) => {
         isCreated = false;
     const ratio = 360 / 270;
     let isLoading = true;
-    let gif_loadImg, gif_createImg;
+    let gif_createImg;
     let consistencyArr = [];
 
     const cameraOptions = {
@@ -36,7 +39,7 @@ const Detector = (p) => {
         //Loader animation code
         gif_createImg = p.createImg(demo);
         gif_createImg.size(100, 100);
-        gif_loadImg = p.loadImage(demo);
+        //gif_loadImg = p.loadImage(demo);
 
         // Camera video code
         p.video = p.createCapture(cameraOptions);
@@ -45,7 +48,7 @@ const Detector = (p) => {
         // Cauterize the cnv
         cnvPosX = (p.windowWidth - p.width) / 2;
         cnvPosY = (p.windowHeight - p.height) / 2;
-        cnv.position(cnvPosX, cnvPosY);
+        cnv.position(cnvPosX, cnvPosY + cnvPosY / 5);
         p.video.hide();
     };
 
@@ -56,11 +59,6 @@ const Detector = (p) => {
         } else {
             gif_createImg.hide();
             createButtons();
-            // if (window.innerWidth < 250 && !isHidden) {
-            //     console.log(window.innerWidth);
-            //     cnv.hide();
-            //     isHidden = true;
-            // }
         }
     };
 
@@ -71,7 +69,7 @@ const Detector = (p) => {
             startBtn = p.createButton(
                 `<img src= ${powerIcon} alt="mute"  height="32" width="32"/>`
             );
-            startBtn.position(cnvPosX, cnvPosY);
+            startBtn.position(cnvPosX, cnvPosY + cnvPosY / 5);
             startBtn.mousePressed(openWindow);
             startBtn.style("background-color", col);
             startBtn.style("font-size", "10px");
@@ -80,7 +78,7 @@ const Detector = (p) => {
 
             muteBtn = p.createButton("Sound control");
 
-            muteBtn.position(cnvPosX, cnvPosY + 40);
+            muteBtn.position(cnvPosX, cnvPosY + cnvPosY / 5 + 40);
             muteBtn.mousePressed(toggleSoundAlert);
             muteBtn.style("background-color", col);
             muteBtn.style("font-size", "10px");
@@ -116,15 +114,15 @@ const Detector = (p) => {
     };
 
     const openWindow = () => {
-        let height = 200;
-        let width = 200;
+        let height = 220;
+        let width = 250;
         let top = window.innerHeight - height;
-        let left = window.innerWidth - width;
+        let left = window.innerWidth - (width + 10);
 
         window.open(
             window.location.origin + "/cam",
             "_blank",
-            `toolbar=0,location=0,menubar=0 resizable=yes,left=${left},top=${top} width=${width},height=${height}`
+            `toolbar=0,location=0,menubar=0 resizable=no,left=${left},top=${top} width=${width},height=${height}`
         );
     };
     const faceReady = () => {

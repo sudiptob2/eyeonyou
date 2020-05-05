@@ -1,6 +1,7 @@
-import soundFile from "./soundfile.mp3";
+import soundFile from "../../assets/audio/soundfile.mp3";
 
 let audio = new Audio(soundFile);
+audio.volume = 0.2;
 
 const SOUND_KEY = "mute";
 
@@ -10,7 +11,7 @@ const getSoundOption = () => {
         //If we have the file
         if (localStorage.getItem(SOUND_KEY)) {
             //returns boolean
-            return localStorage.getItem(SOUND_KEY) == "true";
+            return localStorage.getItem(SOUND_KEY) === "true";
         } else {
             localStorage.setItem(SOUND_KEY, "true");
         }

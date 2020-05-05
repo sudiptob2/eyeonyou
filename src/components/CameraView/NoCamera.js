@@ -1,6 +1,6 @@
 import React from "react";
+import Sadcat from "../../assets/images/sadcat.svg";
 import "../IntroView/IntroView.css";
-import Sadcat from "./sadcat.svg";
 
 const NoCamera = () => {
     return (

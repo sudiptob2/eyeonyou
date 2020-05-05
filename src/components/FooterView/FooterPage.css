@@ -1,3 +1,6 @@
+a {
+    color: inherit;
+}
 .item1 {
     border: none;
     background-color: inherit;
@@ -27,12 +30,14 @@
 
 .item3 {
     font-size: 20px;
+    text-decoration: none;
     background: #292a30;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .item3:hover {
+    color: inherit;
     background-color: #000000;
     transition: 0.4s;
 }
@@ -44,6 +49,7 @@
     align-items: center;
 }
 .item4:hover {
+    color: inherit;
     background-color: #4267b2;
     transition: 0.4s;
 }
@@ -55,7 +61,8 @@
     align-items: center;
 }
 .item5:hover {
-    background-color: #407cb8;
+    color: inherit;
+    background-color: #b91818;
     transition: 0.4s;
 }
 
@@ -65,19 +72,46 @@
     background-color: rgba(49, 49, 54, 0.993);
     font-size: 15px;
     width: 100%;
-    height: 4rem;
+    height: 3.5rem;
     display: grid;
     grid-template-columns: 3fr 6fr 1fr 1fr 1fr;
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+/* Extra small window for eye on you 300px and down*/
+@media (max-width: 300px) {
+    .item1 {
+        font-size: 5px;
+        padding-left: 1px;
+    }
+    .item2 {
+        font-size: 3px;
+    }
+    .item3,
+    .item4,
+    .item5 {
+        font-size: 5px;
+    }
+    .footer-container {
+        height: 1rem;
+    }
+}
+
+/* Extra small devices (phones, 300px and up) */
+@media only screen and (min-width: 300px) {
     .item1 {
         font-size: 12px;
         padding-left: 3px;
     }
     .item2 {
         font-size: 7px;
+    }
+    .item3,
+    .item4,
+    .item5 {
+        font-size: 7px;
+    }
+    .footer-container {
+        height: 2rem;
     }
 }
 
@@ -90,37 +124,13 @@
     .item2 {
         font-size: 9px;
     }
-}
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-    .item1 {
-        font-size: 12px;
-        padding-left: 3px;
-    }
-    .item2 {
-        font-size: 7px;
-    }
     .item3,
     .item4,
     .item5 {
-        font-size: 12px;
+        font-size: 10px;
     }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-    .item1 {
-        font-size: 14px;
-        padding-left: 5px;
-    }
-    .item2 {
-        font-size: 9px;
-    }
-    .item3,
-    .item4,
-    .item5 {
-        font-size: 14px;
+    .footer-container {
+        height: 2rem;
     }
 }
 
@@ -138,6 +148,9 @@
     .item5 {
         font-size: 16px;
     }
+    .footer-container {
+        height: 3rem;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -154,6 +167,9 @@
     .item5 {
         font-size: 18px;
     }
+    .footer-container {
+        height: 3.5rem;
+    }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -169,5 +185,8 @@
     .item4,
     .item5 {
         font-size: 20px;
+    }
+    .footer-container {
+        height: 3.5rem;
     }
 }

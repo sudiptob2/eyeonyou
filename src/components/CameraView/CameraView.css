@@ -2,6 +2,7 @@
     font-size: x-small;
     color: var(--main-bg-color);
     font-family: "Quicksand", sans-serif !important;
+    padding-top: 10px;
 }
 .toggle-button {
     background-color: Transparent;
@@ -10,4 +11,7 @@
     cursor: pointer;
     overflow: hidden;
     outline: none !important;
+}
+.how-to-configure {
+    width: 500px !important;
 }
