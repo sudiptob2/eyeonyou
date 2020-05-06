@@ -105,7 +105,7 @@ const CameraView = () => {
                             We got you. start Focusing!
                         </span>
                     </div>
-                    <div className="row justify-content-center p-1">
+                    <div className="row justify-content-center p-2">
                         <button
                             onClick={toggleSoundAlert}
                             className="toggle-button"
@@ -113,8 +113,8 @@ const CameraView = () => {
                             <img
                                 src={toggleIcon}
                                 alt="mute"
-                                width="32"
-                                height="32"
+                                width="24"
+                                height="24"
                             />
                         </button>
                     </div>

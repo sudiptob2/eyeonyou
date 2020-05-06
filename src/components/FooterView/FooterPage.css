@@ -80,19 +80,19 @@ a {
 /* Extra small window for eye on you 300px and down*/
 @media (max-width: 300px) {
     .item1 {
-        font-size: 5px;
+        font-size: 7px;
         padding-left: 1px;
     }
     .item2 {
-        font-size: 3px;
+        font-size: 5px;
     }
     .item3,
     .item4,
     .item5 {
-        font-size: 5px;
+        font-size: 8px;
     }
     .footer-container {
-        height: 1rem;
+        height: 1.5rem;
     }
 }
 
