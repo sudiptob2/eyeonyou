@@ -120,7 +120,7 @@ const Detector = (p) => {
         let left = window.innerWidth - (width + 10);
 
         window.open(
-            window.location.origin + "/cam",
+            window.location.origin + "/#/cam",
             "_blank",
             `toolbar=0,location=0,menubar=0 resizable=no,left=${left},top=${top} width=${width},height=${height}`
         );
