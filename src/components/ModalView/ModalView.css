@@ -1,0 +1,15 @@
+.how-it-works {
+    border: none;
+    background-color: inherit;
+    color: #94dfb4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.how-it-works:hover {
+    text-decoration: none;
+    color: #48976a;
+}
+.how-it-works:focus {
+    outline: 0;
+}

@@ -8,8 +8,8 @@ const NoCamera = () => {
             <img
                 style={{
                     paddingTop: "5vh",
-                    maxHeight: 250,
-                    maxWidth: 250,
+                    maxHeight: 200,
+                    maxWidth: 200,
                 }}
                 src={Sadcat}
                 alt="I am a sad kitty"

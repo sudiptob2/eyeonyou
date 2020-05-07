@@ -26,7 +26,7 @@ const FooterPage = () => {
                     </span>
                 </div>
                 <a
-                    href="https://github.com/sudiptob2/simple-react-footer"
+                    href="https://github.com/sudiptob2/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="item3"

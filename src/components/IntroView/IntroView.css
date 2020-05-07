@@ -13,7 +13,7 @@
 .textDetails {
     color: var(--main-bg-color);
     font-family: "Quicksand", sans-serif !important;
-    width: 350px;
+    width: 500px;
     font-size: 15px;
 }
 
@@ -86,7 +86,7 @@
     .textDetails {
         color: var(--main-bg-color);
         font-family: "Quicksand", sans-serif !important;
-        width: 300px;
+
         font-size: 13px;
     }
 }

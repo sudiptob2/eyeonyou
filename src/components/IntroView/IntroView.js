@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import HowItWorksModal from "../ModalView/HowItWorksModal";
 import "./IntroView.css";
 import Logo from "./Logo";
 const IntroView = () => {
@@ -15,7 +16,7 @@ const IntroView = () => {
             </div>
             <div className="row justify-content-center subtitle-custom-padding">
                 <p className="subTitleText">
-                    virtual coworking with eyeonyou significantly improves your
+                    Virtual coworking with eyeonyou significantly improves your
                     productivity.
                 </p>
             </div>
@@ -32,10 +33,8 @@ const IntroView = () => {
             <div className="infoText text-center row justify-content-center p-4">
                 <p className="textDetails">
                     Built with TensorFlow.js + p5.js + React.js. Learn more
-                    about{" "}
-                    <a className="link" href="https://github.io/sudiptob2">
-                        how it works.
-                    </a>
+                    about
+                    <HowItWorksModal />
                 </p>
             </div>
         </div>

@@ -45,7 +45,7 @@ const CameraView = () => {
     };
     useEffect(() => {
         new p5(Detector, videoRef.current);
-        console.log("videoref ", videoRef);
+        //console.log("videoref ", videoRef);
         if (window.innerWidth < 300) {
             videoRef.current.hidden = true;
             setHasVideoRef(true);
@@ -55,7 +55,7 @@ const CameraView = () => {
 
     return (
         <div className="container">
-            {!hasVideoRef && (
+            {hasCamera && (
                 <div>
                     <div className="title row justify-content-center title-custom-padding">
                         <h1 className="titleText text-center">
@@ -85,7 +85,7 @@ const CameraView = () => {
                                 height="16"
                             />{" "}
                             to start focusing (by opening the small window).{" "}
-                            Close the <string>current window now.</string>{" "}
+                            Close the current window now.{" "}
                             <span style={{ color: "red" }}>
                                 Do not close the small window.
                             </span>
@@ -95,7 +95,7 @@ const CameraView = () => {
             )}
 
             {hasCamera ? <div ref={videoRef}></div> : <NoCamera />}
-            {hasVideoRef && (
+            {hasVideoRef && hasCamera && (
                 <div className="container">
                     <div className="logo row justify-content-center title-custom-padding">
                         <Logo width={119} height={70} />
