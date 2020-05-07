@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
+
+:root {
+    --main-bg-color: whitesmoke;
+    --secondary-txt-color: rgb(194, 194, 194);
+    --acent-color: #86e0ce;
+}
+
+.introView {
+    padding: 40px !important;
+}
+
+.textDetails {
+    color: var(--main-bg-color);
+    font-family: "Quicksand", sans-serif !important;
+    width: 500px;
+    font-size: 15px;
+}
+
+.titleText {
+    color: var(--main-bg-color) !important;
+    font-size: 40px !important;
+    font-family: "Quicksand", sans-serif !important;
+}
+
+.subTitleText {
+    color: var(--secondary-txt-color) !important;
+    font-size: 20px !important;
+    font-family: "Quicksand", sans-serif !important;
+    width: 400px;
+    text-align: center;
+    margin: 0 !important;
+}
+
+.startButtonBorder {
+    border: 2px solid var(--acent-color) !important;
+    border-radius: 12px !important;
+}
+
+.startButton {
+    color: var(--acent-color) !important;
+    width: 30% !important;
+    font-size: 30px !important;
+    margin-top: 15px;
+}
+
+.startButton:hover {
+    background-color: #86e0ce !important;
+    color: white !important;
+}
+.title-custom-padding {
+    padding-top: 20px;
+    margin: 0;
+}
+.subtitle-custom-padding {
+    padding-bottom: 20px;
+}
+.link {
+    text-decoration: none !important;
+    color: var(--acent-color);
+}
+
+@media (max-width: 576px) {
+    .introView {
+        padding: 5% !important;
+    }
+    .titleText {
+        color: var(--main-bg-color) !important;
+        font-size: 27px !important;
+        font-family: "Quicksand", sans-serif !important;
+    }
+    .subTitleText {
+        color: var(--secondary-txt-color) !important;
+        font-size: 18px !important;
+        font-family: "Quicksand", sans-serif !important;
+        width: 400px;
+        text-align: center;
+        margin: 0 !important;
+    }
+
+    .startButton {
+        width: 100% !important;
+        font-size: 27px !important;
+    }
+
+    .textDetails {
+        color: var(--main-bg-color);
+        font-family: "Quicksand", sans-serif !important;
+
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 990px) {
+    .startButton {
+        width: 50% !important;
+        font-size: 27px !important;
+    }
+}
