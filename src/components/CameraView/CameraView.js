@@ -55,7 +55,7 @@ const CameraView = () => {
 
     return (
         <div className="container">
-            {hasCamera && (
+            {hasCamera && !hasVideoRef && (
                 <div>
                     <div className="title row justify-content-center title-custom-padding">
                         <h1 className="titleText text-center">
