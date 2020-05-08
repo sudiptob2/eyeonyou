@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_5_8_20,_12_26_AM_[Default_Changelist]" date="1588911992590" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_8_20,_12_26_AM_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 5/8/20, 12:26 AM [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="src/assets/images/camera_page.png" />
+    <option name="AFTER_PATH" value="static/media/camera_page.4539728c.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_8_20,_12_26_AM_[Default_Changelist]/camera_page.4539728c.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/assets/images/landing_page.png" />
+    <option name="AFTER_PATH" value="static/media/landing_page.fa4c6648.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_8_20,_12_26_AM_[Default_Changelist]/landing_page.fa4c6648.png" />
+  </binary>
+</changelist>
