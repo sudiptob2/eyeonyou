@@ -24,3 +24,7 @@ https://www.youtube.com/watch?v=aIgsaMITHL0
 -   Last, but not least, type `npm start` to run the app locally.
 
 -   To look at the code, just open up the project in your favorite code editor!
+
+## Live Demo
+
+Plese **[visit here](https://eou.sudiptobaral.com/#/)** to see the Live Demo website. Thank you.
