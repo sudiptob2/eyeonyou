@@ -22,5 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+<<<<<<< HEAD
 .idea
 .vscode
+=======
+.vscode
+/.idea/workspace.xml
+>>>>>>> 886d4bd5b79c2b83f7b88222940e8fe225173b31
